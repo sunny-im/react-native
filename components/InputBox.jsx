@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, Keyboard } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import TodoList from './TodoList';
 
-const InputBox = ({ addNewTodo }) => {
+const InputBox = ({ addNewTodo, visible }) => {
   //=========================================================
   const [newTodo, setNewTodo] = React.useState('');
   //=========================================================
@@ -12,6 +11,15 @@ const InputBox = ({ addNewTodo }) => {
     setNewTodo('');
     Keyboard.dismiss(); // 키보드 숨기기 (Keyboard API)
   };
+  //=========================================================
+  // useEffect(() => {
+  //   if (visible) {
+    //     console.log(visible);
+    //     Keyboard.dismiss();
+    //   }
+    // }, [visible]);
+  //=========================================================
+      
   return (
     <View>
       <TextInput
@@ -29,6 +37,11 @@ const InputBox = ({ addNewTodo }) => {
             onPress={handleAddTodo}
           />
         }
+        onFocus={() => {
+          if (visible) {
+            Keyboard.dismiss();
+          }
+        }}
       />
     </View>
   )

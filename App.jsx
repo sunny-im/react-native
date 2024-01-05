@@ -1,43 +1,20 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Header from './components/Header';
-import InputBox from './components/InputBox';
-import TodoList from './components/TodoList';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Main from './components/Main';
+import Detail from './components/Detail';
+
 
 export default App = () => {
-//=========================================================
-  const [todoList, setTodoList] = React.useState([
-    {
-      text: '할일1',
-      completed: false,
-    },
-    {
-      text: '할일2',
-      completed: false,
-    },
-    {
-      text: '할일3',
-      completed: false,
-    },
-  ]);
   //=========================================================
-  const addNewTodo = (newTodo) => {
-    setTodoList([...todoList, { text: newTodo, completed: false }]);
-  };
+  const Stack = createStackNavigator();
   //=========================================================
   return (
-    <View style={styles.container}>
-      <Header />
-      <InputBox addNewTodo={addNewTodo}/>
-      <TodoList todoList={todoList} setTodoList={setTodoList}/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Main">
+        <Stack.Screen name="Main" component={Main} options={{ headerShown: false }}/>
+        <Stack.Screen name="Detail" component={Detail} options={{ title: 'List Detail'}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: "#EEE",
-  },
-});
