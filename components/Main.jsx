@@ -70,7 +70,6 @@ const Main = ({navigation}) => {
           </Dialog.Actions>
         </Dialog>
       )}
-      <Button onPress={() => navigation.navigate('Detail')}>Go to Detail</Button>
     </View>
   );
 }
@@ -78,7 +77,6 @@ const Main = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
     backgroundColor: "#EEE",
   },
 });
