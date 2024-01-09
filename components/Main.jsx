@@ -8,9 +8,12 @@ import { Dialog, Button, TextInput, Text } from 'react-native-paper';
 const Main = ({navigation}) => {
 //=========================================================
   const [todoList, setTodoList] = React.useState([
-    { text: '할일1', completed: false },
-    { text: '할일2', completed: false },
-    { text: '할일3', completed: false },
+    { text: '할일1', completed: false },{ text: '할일2', completed: false },{ text: '할일3', completed: false },
+    { text: '할일4', completed: false },{ text: '할일5', completed: false },{ text: '할일6', completed: false },
+    { text: '할일7', completed: false },{ text: '할일3', completed: false },{ text: '할일3', completed: false },
+    { text: '할일3', completed: false },{ text: '할일3', completed: false },{ text: '할일3', completed: false },
+    { text: '할일3', completed: false },{ text: '할일3', completed: false },{ text: '할일3', completed: false },
+    { text: '할일10', completed: false },
   ]);
   const [visible, setVisible] = React.useState(false);
   const [originText, setOriginText] = React.useState('');
